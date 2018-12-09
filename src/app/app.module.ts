@@ -22,6 +22,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ClientService } from './services/client.service';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -48,7 +49,7 @@ import { ClientService } from './services/client.service';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
-  providers: [ClientService],
+  providers: [ClientService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
