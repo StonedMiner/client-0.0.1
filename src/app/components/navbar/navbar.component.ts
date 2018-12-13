@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Client } from '../../models/Client';
 import { Router } from '@angular/router';
+import { SettingsService } from '../../services/settings.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +17,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private settingsService: SettingsService
   ) { }
 
   ngOnInit() {
@@ -28,6 +31,8 @@ export class NavbarComponent implements OnInit {
         this.isLoggedIn = false;
       }
     });
+
+    this.showRegister = this.settingsService.getSettings().allowRegistration;
   }
 
   onLogoutClick() {

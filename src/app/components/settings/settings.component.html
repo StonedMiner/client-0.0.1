@@ -1,3 +1,27 @@
-<p>
-  settings works!
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"> Zurück zum Dashboard</i>
+    </a>
+  </div>
+  <div class="col-md-6">
+    
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Einstellungen bearbeiten
+  </div>
+  <div class="card-body">
+    <form (submit)="onSubmit()">
+      <div class="form-group">
+        <label> Registrieren erlauben</label>
+        <input type="checkbox" name="allowRegistration" [checked]="settings.allowRegistration" 
+        (change)="settings.allowRegistration = !settings.allowRegistration">
+      </div>
+
+      <input type="submit" value="Submit" class="btn btn-primary btn-block">
+    </form>
+  </div>
+</div>
